@@ -12,7 +12,15 @@ const PORT = 4000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+
+      return callback(null, true);
+    },
+  })
+);
 
 const database = [];
 const generateID = () => Math.random().toString(36).substring(2, 10);

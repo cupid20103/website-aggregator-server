@@ -16,7 +16,7 @@ app.use(express.json());
 var corsOption = {
   origin: `*`,
   methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
-  url: ["http://localhost:3000", "https://website-aggregator-client.vercel.app/"],
+  url: ["http://localhost:3000", "https://website-aggregator-client.vercel.app"],
 };
 
 app.use(cors(corsOption));

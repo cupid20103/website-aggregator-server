@@ -26,7 +26,7 @@ const database = [];
 const generateID = () => Math.random().toString(36).substring(2, 10);
 
 async function chatgptFunction(content = "") {
-  const api = new ChatGPTAPI({ apiKey: process.env.API_KEY });
+  const api = new ChatGPTAPI({ apiKey: process.env.OPENAI_API_KEY });
 
   const getBrandName = await api.sendMessage(
     `I have a raw text of a website, what is the brand name in a single word? ${content}`

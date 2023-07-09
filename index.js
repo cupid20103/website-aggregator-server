@@ -13,11 +13,17 @@ const PORT = 4000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const corsOption = {
-  origin: true
-};
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin
+      // (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
 
-app.use(cors(corsOption));
+      return callback(null, true);
+    },
+  })
+);
 
 const database = [];
 const generateID = () => Math.random().toString(36).substring(2, 10);

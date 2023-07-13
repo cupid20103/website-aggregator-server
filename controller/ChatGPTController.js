@@ -8,6 +8,7 @@ const generateID = () => Math.random().toString(36).substring(2, 10);
 
 async function chatgptFunction(content = "") {
   const api = new ChatGPTAPI({ apiKey: OPENAI_API_KEY });
+  console.log(OPENAI_API_KEY);
 
   const getBrandName = await api.sendMessage(
     `I have a raw text of a website, what is the brand name in a single word? ${content}`
@@ -22,8 +23,10 @@ async function chatgptFunction(content = "") {
   };
 }
 
-const getData = (req, res) => {
+export const getData = (req, res) => {
   const { url } = req.body;
+
+  console.log(url);
 
   (async () => {
     const browser = await puppeteer.launch();
@@ -62,8 +65,4 @@ const getData = (req, res) => {
       database,
     });
   })();
-};
-
-export default {
-  getData,
 };

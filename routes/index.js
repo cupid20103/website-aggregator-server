@@ -1,6 +1,6 @@
 import express from "express";
 
-import ChatGPTController from "../controller/ChatGPTController.js";
+import { getData } from "../controller/ChatGPTController.js";
 
 const router = express.Router();
 
@@ -10,6 +10,6 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/url", ChatGPTController.getData);
+router.post("/url", getData);
 
 export default router;
